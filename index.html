@@ -73,7 +73,7 @@
       -webkit-appearance: none;
       border: none;
       height: 16px;
-      width: 200px;
+      width: 120px;
       background: lime;
       margin-top: -4px;
     }
@@ -406,18 +406,6 @@ tl3.to("#green", 1, {x: 600})
       </section>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
       <section>
         <!--.wrap = container (width: 90%) -->
         <div class="wrap">
@@ -430,11 +418,17 @@ tl3.to("#green", 1, {x: 600})
                 <div id="orange5" style="height: 100px; width: 100px; background: orange;  margin: 10px;"></div>
               </div>
               <button id="go5">Run</button>
+              <input type="range">
+              <input type="range">
+              <input type="range">
               <script>
                 $(document).ready(function () {
                   $('#go5').click(function () {
                     const tl5 = new TimelineMax();
-                    tl5.to("#green5", 1, { x: 600 }).to("#blue5", 1, { x: 600 }).to("#orange5", 1, { x: 600 });
+                    tl5
+                      .to("#green5", 1, { x: 600 }, "myLabel")
+                      .to("#blue5", 1, { x: 600 })
+                      .to("#orange5", 1, { x: 600 }, "myLabel+=0.5");
                   });
                 });
               </script>
@@ -442,15 +436,16 @@ tl3.to("#green", 1, {x: 600})
             <!-- .end .column -->
             <div class="column">
               <h3>
-                GSAP Review
+                Use
+                <code>position</code> to set a label or to specify where a teen should be placed
               </h3>
-              <pre><code><h4>
+              <pre><code><h5>
   const tl5 = new TimelineMax();
   
-  tl5.to("#green", 1, {x: 600})
-     .to("#blue", 1, {x: 600})
-     .to("#orange", 1, {x: 600});
-  </h4></code></pre>
+  tl5.to("#green", 1, { x: 600 }, "myLabel")
+     .to("#blue", 1, { x: 600 })
+     .to("#orange", 1, { x: 600 }, "myLabel+=0.5");
+  </h5></code></pre>
 
             </div>
             <!-- .end .column -->
@@ -462,7 +457,15 @@ tl3.to("#green", 1, {x: 600})
 
 
 
-      <section>
+
+
+
+
+
+
+
+
+      <section class="bg-apple">
         <!--.wrap = container (width: 90%) -->
         <div class="wrap">
           <div class="grid vertical-align">
@@ -480,15 +483,15 @@ tl3.to("#green", 1, {x: 600})
               <h3>
                 GSAP's position property
               </h3>
-              <p>The animation is a bit out of whack. Fix it:
+              <p class="text-intro">Fix this animation so that:
               </p>
               <ul class="flexblock activity">
-                <li>Man should start animating 1 second before car animation ends</li>
-                <li>One second after man animation ends both car and lift should go up simultaneously</li>
+                <li class="text-intro">Man should start animating 1 second before car animation ends</li>
+                <li class="text-intro">One second after man animation ends both car and lift should go up simultaneously</li>
               </ul>
               <br>
-              <p>For a visual representation of what the finished product should like, here is a
-                <a href="http://greensock.com/wp-content/uploads/custom/position-challenge/position-challenge.gif">.gif</a>
+              <p class="text-intro">See answer in
+                <a href="http://greensock.com/wp-content/uploads/custom/position-challenge/position-challenge.gif">.gif</a> format
               </p>
             </div>
             <!-- .end .column -->
