@@ -62,7 +62,22 @@
   <!-- Android -->
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="theme-color" content="#333333">
+  <style>
+    input[type=range] {
+      -webkit-appearance: none;
+      background: #333;
+      border: none;
+    }
 
+    input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      border: none;
+      height: 16px;
+      width: 200px;
+      background: lime;
+      margin-top: -4px;
+    }
+  </style>
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous"></script>
 </head>
@@ -148,12 +163,9 @@
                 <p>Employ the jQuery animate() method to control motion-based element interactions</p>
               </li>
               <li>
-                <h2>Easing plugins</h2>
-                <p>Extend the basic jQuery easing/timing controls with third-party plugins</p>
-              </li>
-              <li>
-                <h2>Callbacks</h2>
-                <p>Construct callback functions that permit more sophisticated animated interactions and sequences</p>
+                <h2>Easing plugins & Callbacks</h2>
+                <p>Extend the basic jQuery easing/timing controls with third-party plugins.
+                  <br>Construct callback functions that permit more sophisticated animated interactions and sequences</p>
               </li>
             </ul>
           </div>
@@ -174,9 +186,9 @@
         <div class="wrap">
 
           <blockquote class="text-quote">
-            <p> I think it's good, but I still think that it's not as complex as Greensock's ...I think it's a step in the right
-              direction. But there's also some things like eases, bounces, seeks, workflow boons that it doesn't include.
-              Until it does, it's still not as good.</p>
+            <p> I think it's good, but I still think that it's not as complex as Greensock's. It's a step in the right direction,
+              but there's also some things like eases, bounces, seeks, workflow boons that it doesn't include. Until it does,
+              it's still not as good.</p>
             <p>
               <cite>
                 <img class="avatar-56" src="https://pbs.twimg.com/profile_images/967911694457389056/lNnUddRP_bigger.jpg" alt="Avatar">Sarah Drasner.
@@ -188,6 +200,267 @@
         </div>
         <!-- .end .wrap -->
       </section>
+
+
+      <section>
+        <!--.wrap = container (width: 90%) -->
+        <div class="wrap">
+          <div class="grid vertical-align">
+
+            <div class="column">
+              <div style="background: #333; padding: 33px">
+                <div id="green1" style="height: 100px; width: 100px; background: green; margin: 10px;"></div>
+                <div id="blue1" style="height: 100px; width: 100px; background: lightblue;  margin: 10px;"></div>
+                <div id="orange1" style="height: 100px; width: 100px; background: orange;  margin: 10px;"></div>
+              </div>
+              <button id="go1">Run</button>
+              <input type="range">
+              <input type="range">
+              <input type="range">
+              <script>
+                $(document).ready(function () {
+                  $('#go1').click(function () {
+                    const tl1 = new TimelineMax();
+                    tl1.to("#green1", 1, { x: 600 }).to("#blue1", 1, { x: 600 }).to("#orange1", 1, { x: 600 });
+                  });
+                });
+              </script>
+            </div>
+            <!-- .end .column -->
+            <div class="column">
+              <h3>
+                GSAP Review
+              </h3>
+              <pre><code><h4>
+const tl1 = new TimelineMax();
+
+tl1.to("#green", 1, {x: 600})
+   .to("#blue", 1, {x: 600})
+   .to("#orange", 1, {x: 600});
+</h4></code></pre>
+
+            </div>
+            <!-- .end .column -->
+          </div>
+          <!-- .end .grid -->
+        </div>
+        <!-- .end .wrap -->
+      </section>
+
+      <section>
+        <!--.wrap = container (width: 90%) -->
+        <div class="wrap aligncenter size-70">
+          <h2>Introducing the
+            <code>position</code> parameter
+          </h2>
+          <br/>
+          <p class="text-intro">The secret to building gorgeous sequences with precise timing is understanding the
+            <code>position</code> parameter which is used in many methods throughout TimelineLite/Max. This one super-flexible parameter controls
+            the placement of your tweens, labels, callbacks, pauses, and even nested timelines, so you'll be able to literally
+            place anything anywhere in any sequence</p>
+          <pre><code><h3 class="aligncenter">.to( target, duration, vars, position )</h3></code></pre>
+          <p>For example, what if you want them to overlap, or start at the same time, or have a gap between them?</p>
+        </div>
+        <!-- .end .wrap -->
+      </section>
+
+      <section>
+        <!--.wrap = container (width: 90%) -->
+        <div class="wrap">
+          <div class="grid vertical-align">
+
+            <div class="column">
+              <div style="background: #333; padding: 33px">
+                <div id="green2" style="height: 100px; width: 100px; background: green; margin: 10px;"></div>
+                <div id="blue2" style="height: 100px; width: 100px; background: lightblue;  margin: 10px;"></div>
+                <div id="orange2" style="height: 100px; width: 100px; background: orange;  margin: 10px;"></div>
+              </div>
+              <button id="go2">Run</button>
+              <input type="range">
+              <input type="range">
+              <input type="range">
+              <script>
+                $(document).ready(function () {
+                  $('#go2').click(function () {
+                    const tl2 = new TimelineMax();
+                    tl2
+                      .to("#green2", 1, { x: 600 })
+                      .to("#blue2", 1, { x: 600 }, "+=1")
+                      .to("#orange2", 1, { x: 600 }, "+=2");
+                  });
+                });
+              </script>
+            </div>
+            <!-- .end .column -->
+            <div class="column">
+              <h3>
+                Use
+                <code>position</code> to allow for gaps ("+=1")
+              </h3>
+              <pre><code><h4>
+tl2.to("#green", 1, {x: 600})
+    .to("#blue", 1, {x: 600}, "+=1")
+    .to("#orange", 1, {x: 600}, "+=2");
+  </h4></code></pre>
+
+            </div>
+            <!-- .end .column -->
+          </div>
+          <!-- .end .grid -->
+        </div>
+        <!-- .end .wrap -->
+      </section>
+
+      <section>
+        <!--.wrap = container (width: 90%) -->
+        <div class="wrap">
+          <div class="grid vertical-align">
+
+            <div class="column">
+              <div style="background: #333; padding: 33px">
+                <div id="green3" style="height: 100px; width: 100px; background: green; margin: 10px;"></div>
+                <div id="blue3" style="height: 100px; width: 100px; background: lightblue;  margin: 10px;"></div>
+                <div id="orange3" style="height: 100px; width: 100px; background: orange;  margin: 10px;"></div>
+              </div>
+              <button id="go3">Run</button>
+              <input type="range">
+              <input type="range">
+              <input type="range">
+              <script>
+                $(document).ready(function () {
+                  $('#go3').click(function () {
+                    const tl3 = new TimelineMax();
+                    tl3
+                      .to("#green3", 1, { x: 600 })
+                      .to("#blue3", 1, { x: 600 }, "-=.5")
+                      .to("#orange3", 1, { x: 600 }, "-=.5");
+                  });
+                });
+              </script>
+            </div>
+            <!-- .end .column -->
+            <div class="column">
+              <h3>
+                Use
+                <code>position</code> to allow for overlaps ("-=1")
+              </h3>
+              <pre><code><h4>
+tl3.to("#green", 1, {x: 600})
+   .to("#blue", 1, {x: 600}, "-=.5")
+   .to("#orange", 1, {x: 600}, "-=.5");
+    </h4></code></pre>
+
+            </div>
+            <!-- .end .column -->
+          </div>
+          <!-- .end .grid -->
+        </div>
+        <!-- .end .wrap -->
+      </section>
+
+      <section>
+        <!--.wrap = container (width: 90%) -->
+        <div class="wrap">
+          <div class="grid vertical-align">
+
+            <div class="column">
+              <div style="background: #333; padding: 33px">
+                <div id="green4" style="height: 100px; width: 100px; background: green; margin: 10px;"></div>
+                <div id="blue4" style="height: 100px; width: 100px; background: lightblue;  margin: 10px;"></div>
+                <div id="orange4" style="height: 100px; width: 100px; background: orange;  margin: 10px;"></div>
+              </div>
+              <button id="go4">Run</button>
+              <input type="range">
+              <input type="range">
+              <input type="range">
+              <script>
+                $(document).ready(function () {
+                  $('#go4').click(function () {
+                    const tl4 = new TimelineMax();
+                    tl4
+                      .to("#green4", 1, { x: 600 })
+                      .to("#blue4", 1, { x: 600 }, "2")
+                      .to("#orange4", 1, { x: 600 }, "2.5");
+                  });
+                });
+              </script>
+            </div>
+            <!-- .end .column -->
+            <div class="column">
+              <h3>
+                Use
+                <code>position</code> as an absolute value to specify the exact time in seconds when a tween should start
+              </h3>
+              <pre><code><h4>
+  tl4.to("#green", 1, {x: 600})
+     .to("#blue", 1, {x: 600}, "2")
+     .to("#orange", 1, {x: 600}, "2.5");
+      </h4></code></pre>
+
+            </div>
+            <!-- .end .column -->
+          </div>
+          <!-- .end .grid -->
+        </div>
+        <!-- .end .wrap -->
+      </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <section>
+        <!--.wrap = container (width: 90%) -->
+        <div class="wrap">
+          <div class="grid vertical-align">
+
+            <div class="column">
+              <div style="background: #333; padding: 33px">
+                <div id="green5" style="height: 100px; width: 100px; background: green; margin: 10px;"></div>
+                <div id="blue5" style="height: 100px; width: 100px; background: lightblue;  margin: 10px;"></div>
+                <div id="orange5" style="height: 100px; width: 100px; background: orange;  margin: 10px;"></div>
+              </div>
+              <button id="go5">Run</button>
+              <script>
+                $(document).ready(function () {
+                  $('#go5').click(function () {
+                    const tl5 = new TimelineMax();
+                    tl5.to("#green5", 1, { x: 600 }).to("#blue5", 1, { x: 600 }).to("#orange5", 1, { x: 600 });
+                  });
+                });
+              </script>
+            </div>
+            <!-- .end .column -->
+            <div class="column">
+              <h3>
+                GSAP Review
+              </h3>
+              <pre><code><h4>
+  const tl5 = new TimelineMax();
+  
+  tl5.to("#green", 1, {x: 600})
+     .to("#blue", 1, {x: 600})
+     .to("#orange", 1, {x: 600});
+  </h4></code></pre>
+
+            </div>
+            <!-- .end .column -->
+          </div>
+          <!-- .end .grid -->
+        </div>
+        <!-- .end .wrap -->
+      </section>
+
+
 
       <section>
         <!--.wrap = container (width: 90%) -->
@@ -292,7 +565,7 @@
         <ol>
           <li>Advanced SVG Animation with Sarah Drasner http://lynda.com</li>
           <li>Creating an HTML5 Banner ad with Greensock (GSAP) with Chris Converse</li>
-          <li></li>
+          <li>https://greensock.com/position-parameter</li>
           <li></li>
           <li></li>
           <li></li>
