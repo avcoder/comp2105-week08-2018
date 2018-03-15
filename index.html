@@ -91,6 +91,7 @@
     crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
     crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
 </head>
 
 <body>
@@ -191,6 +192,38 @@
           <div class="grid vertical-align">
 
             <div class="column">
+              <p data-height="500" data-theme-id="0" data-slug-hash="pLJeJN" data-default-tab="html,result" data-user="avcoder" data-embed-version="2"
+                data-pen-title="exercise using arrow keys and jquery's animate()" data-preview="true" class="codepen">See the Pen
+                <a href="https://codepen.io/avcoder/pen/pLJeJN/">exercise using arrow keys and jquery's animate()</a> by A.V. (
+                <a href="https://codepen.io/avcoder">@avcoder</a>) on
+                <a href="https://codepen.io">CodePen</a>.</p>
+              <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+            </div>
+            <!-- .end .column -->
+            <div class="column">
+              <h3>
+                Frogger
+              </h3>
+              <p class="text-intro">Make frog move</p>
+              <p>
+                <a href="https://www.youtube.com/watch?v=l9fO-YuWPSk">See arcade game</a>
+              </p>
+
+            </div>
+            <!-- .end .column -->
+          </div>
+          <!-- .end .grid -->
+        </div>
+        <!-- .end .wrap -->
+      </section>
+
+
+      <section>
+        <!--.wrap = container (width: 90%) -->
+        <div class="wrap">
+          <div class="grid vertical-align">
+
+            <div class="column">
               <div style="background: #333; padding: 33px; position: relative; height: 200px">
                 <div id="lime1" style="position: absolute; height: 100px; width: 100px; background: lime; margin: 10px; border-radius: 50px"></div>
               </div>
@@ -211,10 +244,10 @@
               <h4>
                 <code>.animate( properties [, duration ] )</code>
               </h4>
-              <p class="text-intro">Can only use
-                <strong>numeric</strong> CSS properties in .animate(); Duration is specified in milliseconds. Directional properties
-                (top, right, bottom, left) have no discernible effect on elements if their position style property is static,
-                which it is by default.</p>
+              <p class="text-intro">can only use
+                <strong>numeric</strong> CSS properties in .animate(); Duration is specified in
+                <strong>milliseconds</strong>. Directional properties (top, right, bottom, left) have no discernible effect on elements
+                if their position style property is static, which it is by default.</p>
               <pre><code><h4>
 $("#lime1").animate({
   left: "+=100"
@@ -315,9 +348,6 @@ $('#golime3').click(function () {
         <!-- .end .wrap -->
       </section>
 
-
-
-
       <section>
         <!--.wrap = container (width: 90%) -->
         <div class="wrap">
@@ -333,6 +363,52 @@ $('#golime3').click(function () {
                 $(document).ready(function () {
                   $('#golime4').click(function () {
                     $("#lime4").animate({
+                      left: "+=100"
+                    }, 1000, "easeOutBounce");
+                  });
+                });
+              </script>
+            </div>
+            <!-- .end .column -->
+            <div class="column">
+              <h4>
+                Robert Penner's jquery.easing Plugin
+              </h4>
+              <p class="text-intro">to use these custom plugins you must include the
+                <a href="http://gsgd.co.uk/sandbox/jquery/easing/">library</a> then use it in .animate() in the easing parameter.
+              </p>
+              <pre><code><h4>
+  $('#golime4').click(function () {
+    $("#lime4").animate({
+      left: "+=100"
+    }, 1000, "easeOutBounce");
+  });
+      </h4></code>
+                      </pre>
+            </div>
+            <!-- .end .column -->
+          </div>
+          <!-- .end .grid -->
+        </div>
+        <!-- .end .wrap -->
+      </section>
+
+
+      <section>
+        <!--.wrap = container (width: 90%) -->
+        <div class="wrap">
+          <div class="grid vertical-align">
+
+            <div class="column">
+              <div style="background: #333; padding: 33px; position: relative; height: 200px">
+                <div id="lime5" style="position: absolute; height: 100px; width: 100px; background: lime; margin: 10px; border-radius: 50px"></div>
+              </div>
+              <button id="golime5">Run</button>
+
+              <script>
+                $(document).ready(function () {
+                  $('#golime5').click(function () {
+                    $("#lime5").animate({
                       left: "+=100"
                     }, 1000, function () {
                       alert('animation completed');
@@ -351,7 +427,7 @@ $('#golime3').click(function () {
               </h5>
 
               <pre><code><h4>
-  $("#lime1").animate({
+  $("#lime5").animate({
     left: "+=100"
   }, 1000, function () {
     alert('animation completed');
@@ -366,9 +442,60 @@ $('#golime3').click(function () {
         <!-- .end .wrap -->
       </section>
 
+      <section>
+        <!--.wrap = container (width: 90%) -->
+        <div class="wrap">
+          <div class="grid vertical-align">
+
+            <div class="column">
+              <p data-height="500" data-theme-id="0" data-slug-hash="RMPGmr" data-default-tab="html,result" data-user="avcoder" data-embed-version="2"
+                data-pen-title="online exercise 8" data-preview="true" class="codepen">See the Pen
+                <a href="https://codepen.io/avcoder/pen/RMPGmr/">online exercise 8</a> by A.V. (
+                <a href="https://codepen.io/avcoder">@avcoder</a>) on
+                <a href="https://codepen.io">CodePen</a>.</p>
+              <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+            </div>
+            <!-- .end .column -->
+            <div class="column">
+              <h3>
+                Online Exercise 8
+              </h3>
+              <p class="text-intro">make nav menu bounce in/out using jQuery's .animate() </p>
 
 
+            </div>
+            <!-- .end .column -->
+          </div>
+          <!-- .end .grid -->
+        </div>
+        <!-- .end .wrap -->
+      </section>
 
+      <section class="bg-secondary">
+        <!--.wrap = container (width: 90%) -->
+        <div class="wrap size-50 frame">
+          <h2 class="text-serif aligncenter">
+            Do Quiz 8
+          </h2>
+          <p class="aligncenter">
+            <a href="http://avillaruz.computerstudi.es/comp2105/index.html">Start timer</a>
+          </p>
+          <p class="text-symbols">* * *</p>
+          <h4>More Stuff</h4>
+
+          <ul>
+            <li>
+              <a style="text-decoration:underline" href="http://hackeryou.com/everything-you-need-to-know-about-running-a-sole-proprietorship-business-with-wes-bos/">Everything I wish I knew running a sole proprietorship business</a>
+            </li>
+            <li>
+              <a href="https://www.youtube.com/watch?v=hNsqqVx1ZC4#t=5m50s" style="text-decoration:underline;">Traversy's Home Office Tour</a>
+            </li>
+            <li>
+              <a href="https://speckyboy.com/survive-web-designer-business-background/" style="text-decoration:underline;">How to Survive as a Web Designer with No Business Background</a>
+            </li>
+          </ul>
+        </div>
+      </section>
 
 
 
