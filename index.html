@@ -77,8 +77,19 @@
       background: lime;
       margin-top: -4px;
     }
+
+    input[type=range]::-moz-range-thumb {
+      border: none;
+      height: 16px;
+      width: 120px;
+      background: lime;
+      margin-top: -4px;
+      border-radius: 0;
+    }
   </style>
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
     crossorigin="anonymous"></script>
 </head>
 
@@ -153,19 +164,19 @@
           <div class="bg-white shadow">
             <ul class="flexblock reasons">
               <li>
-                <h2>GSAP</h2>
-                <p>We'll make a banner ad using GSAP's basic methods</p>
-              </li>
-              <li>
                 <h2>
                   .animate()
                 </h2>
                 <p>Employ the jQuery animate() method to control motion-based element interactions</p>
               </li>
               <li>
-                <h2>Easing plugins & Callbacks</h2>
+                <h2>Easing plugins &amp; Callbacks</h2>
                 <p>Extend the basic jQuery easing/timing controls with third-party plugins.
                   <br>Construct callback functions that permit more sophisticated animated interactions and sequences</p>
+              </li>
+              <li>
+                <h2>GSAP</h2>
+                <p>We'll make a banner ad using GSAP's basic methods</p>
               </li>
             </ul>
           </div>
@@ -173,6 +184,204 @@
         </div>
         <!-- .end .wrap -->
       </section>
+
+      <section>
+        <!--.wrap = container (width: 90%) -->
+        <div class="wrap">
+          <div class="grid vertical-align">
+
+            <div class="column">
+              <div style="background: #333; padding: 33px; position: relative; height: 200px">
+                <div id="lime1" style="position: absolute; height: 100px; width: 100px; background: lime; margin: 10px; border-radius: 50px"></div>
+              </div>
+              <button id="golime1">Run</button>
+
+              <script>
+                $(document).ready(function () {
+                  $('#golime1').click(function () {
+                    $("#lime1").animate({
+                      left: "+=100"
+                    }, 1000);
+                  });
+                });
+              </script>
+            </div>
+            <!-- .end .column -->
+            <div class="column">
+              <h4>
+                <code>.animate( properties [, duration ] )</code>
+              </h4>
+              <p class="text-intro">Can only use
+                <strong>numeric</strong> CSS properties in .animate(); Duration is specified in milliseconds. Directional properties
+                (top, right, bottom, left) have no discernible effect on elements if their position style property is static,
+                which it is by default.</p>
+              <pre><code><h4>
+$("#lime1").animate({
+  left: "+=100"
+}, 1000);
+</h4></code>
+                </pre>
+              <p>What happens if you just say left: "100" ?</p>
+            </div>
+            <!-- .end .column -->
+          </div>
+          <!-- .end .grid -->
+        </div>
+        <!-- .end .wrap -->
+      </section>
+
+      <section>
+        <!--.wrap = container (width: 90%) -->
+        <div class="wrap">
+          <div class="grid vertical-align">
+
+            <div class="column">
+              <div style="background: #333; padding: 33px; position: relative; height: 200px">
+                <div id="lime2" style="position: absolute; height: 100px; width: 100px; background: lime; margin: 10px; border-radius: 50px"></div>
+              </div>
+              <button id="golime2">Run</button>
+
+              <script>
+                $(document).ready(function () {
+                  $('#golime2').click(function () {
+                    $("#lime2").animate({
+                      left: "+=100"
+                    }, 1000, "linear");
+                  });
+                });
+              </script>
+            </div>
+            <!-- .end .column -->
+            <div class="column">
+              <h5>
+                <code>.animate( properties [, duration ] [, <a href="http://api.jquery.com/animate/">easing</a>] )</code>
+              </h5>
+              <p class="text-intro">The only easing that jQuery has are swing (default), and linear. More easing functions are available with the
+                use of plug-ins.</p>
+              <pre><code><h4>
+  $("#lime2").animate({
+    left: "+=100"
+  }, 1000, "linear");
+  </h4></code>
+                  </pre>
+              <p>What happens if you just say left: "100" ?</p>
+            </div>
+            <!-- .end .column -->
+          </div>
+          <!-- .end .grid -->
+        </div>
+        <!-- .end .wrap -->
+      </section>
+
+      <section>
+        <!--.wrap = container (width: 90%) -->
+        <div class="wrap">
+          <div class="grid vertical-align">
+
+            <div class="column">
+              <div style="background: #333; padding: 33px; position: relative; height: 200px">
+                <div id="lime3" style="position: absolute; height: 100px; width: 100px; background: lime; margin: 10px; border-radius: 50px"></div>
+              </div>
+              <button id="golime3">Run</button>
+
+              <script>
+                $(document).ready(function () {
+                  $('#golime3').click(function () {
+                    $("#lime3").effect("bounce", "slow");
+                  });
+                });
+              </script>
+            </div>
+            <!-- .end .column -->
+            <div class="column">
+              <h4>
+                Easing plugins : jQuery UI's .effect()
+              </h4>
+              <p class="text-intro">if jQuery UI
+                <a href="https://code.jquery.com/ui/">library</a> is included, then you can use
+                <a href="http://jqueryui.com/effect/">.effect()</a>
+              </p>
+              <pre><code><h4>
+$('#golime3').click(function () {
+  $("#lime3").effect("bounce", "slow");
+});
+    </h4></code>
+                    </pre>
+            </div>
+            <!-- .end .column -->
+          </div>
+          <!-- .end .grid -->
+        </div>
+        <!-- .end .wrap -->
+      </section>
+
+
+
+
+      <section>
+        <!--.wrap = container (width: 90%) -->
+        <div class="wrap">
+          <div class="grid vertical-align">
+
+            <div class="column">
+              <div style="background: #333; padding: 33px; position: relative; height: 200px">
+                <div id="lime4" style="position: absolute; height: 100px; width: 100px; background: lime; margin: 10px; border-radius: 50px"></div>
+              </div>
+              <button id="golime4">Run</button>
+
+              <script>
+                $(document).ready(function () {
+                  $('#golime4').click(function () {
+                    $("#lime4").animate({
+                      left: "+=100"
+                    }, 1000, function () {
+                      alert('animation completed');
+                    });
+                  });
+                });
+              </script>
+            </div>
+            <!-- .end .column -->
+            <div class="column">
+              <h4>
+                .animate() has callbacks
+              </h4>
+              <h5>
+                <code>.animate( properties [, duration ] [, easing ] [, <a style="text-decoration: underline" href="http://api.jquery.com/animate/">complete</a> ] )</code>
+              </h5>
+
+              <pre><code><h4>
+  $("#lime1").animate({
+    left: "+=100"
+  }, 1000, function () {
+    alert('animation completed');
+  });
+  </h4></code>
+                  </pre>
+            </div>
+            <!-- .end .column -->
+          </div>
+          <!-- .end .grid -->
+        </div>
+        <!-- .end .wrap -->
+      </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
       <section class="bg-apple">
@@ -501,6 +710,21 @@ tl3.to("#green", 1, {x: 600})
         <!-- .end .wrap -->
       </section>
 
+      <section>
+        <!--.wrap = container (width: 90%) -->
+        <div class="wrap size-50 aligncenter">
+          <h2>
+            <strong>Make a banner ad with GSAP</strong>
+          </h2>
+          <br />
+          <div class="bg-white shadow">
+            <img src="./static/images/banner.gif" alt="banner ad with gsap">
+          </div>
+          <!-- .end .bg-white shadow -->
+        </div>
+        <!-- .end .wrap -->
+      </section>
+
 
       <section>
         <!--.wrap = container (width: 90%) -->
@@ -534,23 +758,21 @@ tl3.to("#green", 1, {x: 600})
             Do Project 1
             <br/>until end of class
           </h2>
-          <p class="text-intro wrap aligncenter">
-            Bonus: Double your in-class exercise 7 mark by completing the,
-            <a href="https://codepen.io/avcoder/pen/xYowjK?editors=0010" style="text-decoration: underline; color: #fff;">Greensock Jeopardy column</a>.
+          <p class="aligncenter">
+            <a href="http://avillaruz.computerstudi.es/comp2105/index.html">Start timer</a>
           </p>
-
           <p class="text-symbols">* * *</p>
           <h4>More Stuff</h4>
 
           <ul>
             <li>
-              <a style="text-decoration:underline" href="https://codepen.io/jobs/">Job Board from Codepen</a>
+              <a style="text-decoration:underline" href="https://insights.stackoverflow.com/survey/2018/">Stackoverflow Developer Survey Results 2018</a>
             </li>
             <li>
-              <a href="https://dev.to/kaydacode/interview-questions-you-should-ask--3dkc" style="text-decoration:underline;">Interview Questions you Should Ask</a>
+              <a href="http://www.nomachetejuggling.com/2014/02/05/top-10-career-changing-programming-books/" style="text-decoration:underline;">Top 10 Career-changing Programming Books</a>
             </li>
             <li>
-              <a href="https://twitter.com/laraveljobs?lang=en" style="text-decoration:underline;">Laravel Programming jobs</a>
+              <a href="https://joolean.io/resume-hosting-github-5-minutes/" style="text-decoration:underline;">How to host your personal resume using Github pages for free</a>
             </li>
           </ul>
         </div>
